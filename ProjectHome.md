@@ -1,0 +1,1 @@
+This project aims to implement a little viewer for a ZooKeeper tree.
