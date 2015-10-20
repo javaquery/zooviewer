@@ -12,32 +12,13 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.isammoc.zooviewer.tree;
+package net.isammoc.zooviewer.model;
 
-import javax.swing.JTree;
-
-import net.isammoc.zooviewer.model.ZVModel;
+import java.util.EventListener;
 import net.isammoc.zooviewer.node.ZVNode;
 
-public class JZVTree extends JTree {
-    /** */
-    private static final long serialVersionUID = 1L;
-
-    public JZVTree(ZVModel model) {
-	super(new ZVTreeModel(model));
-    }
-
-    public JZVTree(ZVTreeModel model) {
-	super(model);
-    }
-
-    @Override
-    public String convertValueToText(Object value, boolean selected,
-	    boolean expanded, boolean leaf, int row, boolean hasFocus) {
-	if (value instanceof ZVNode) {
-	    return ((ZVNode) value).getName();
-	}
-	return super.convertValueToText(value, selected, expanded, leaf, row,
-		hasFocus);
-    }
+public interface ZVModelListener extends EventListener {
+    void nodeCreated(ZVNode newNode);
+    void nodeDeleted(ZVNode oldNode, int oldIndex);
+    void nodeDataChanged(ZVNode node);
 }

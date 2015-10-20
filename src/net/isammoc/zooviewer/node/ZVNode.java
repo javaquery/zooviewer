@@ -15,13 +15,13 @@
 package net.isammoc.zooviewer.node;
 
 import java.beans.PropertyChangeListener;
-
 import org.apache.zookeeper.data.Stat;
 
 /**
  * A ZVNode is a data fit requierements to be a ZooKeeper node.
  */
 public interface ZVNode {
+
     final String PROPERTY_DATA = "data";
     final String PROPERTY_EXISTS = "exists";
     final String PROPERTY_CHILDREN = "children";
@@ -29,60 +29,69 @@ public interface ZVNode {
 
     /**
      * Returns this node's path.
+     *
      * @return the path
      */
     String getPath();
 
     /**
      * Returns this node's name.
+     *
      * @return the name
      */
     String getName();
 
     /**
      * Returns this node's data.
+     *
      * @return the data
      */
     byte[] getData();
 
     /**
      * Returns this node's stats.
+     *
      * @return the stats
      */
     Stat getStat();
 
     /**
      * Checks if this node exists in the ZooKeeper model.
+     *
      * @return
      */
     boolean exists();
 
     /**
      * Adds a {@link PropertyChangeListener} to this node's listeners list.
+     *
      * @param listener the listener
      */
     void addPropertyChangeListener(PropertyChangeListener listener);
 
     /**
      * Adds a {@link PropertyChangeListener} to this node's listeners list.
-     * 
+     *
      * @param propertyName the property name
      * @param listener the listener
      */
     void addPropertyChangeListener(String propertyName,
-        PropertyChangeListener listener);
+            PropertyChangeListener listener);
 
     /**
-     * Remove the specified {@link PropertyChangeListener} from this node's listeners list.
+     * Remove the specified {@link PropertyChangeListener} from this node's
+     * listeners list.
+     *
      * @param listener the listener
      */
     void removePropertyChangeListener(PropertyChangeListener listener);
 
     /**
-     * Remove the specified {@link PropertyChangeListener} from this node's listeners list.
-     * @param the property name
+     * Remove the specified {@link PropertyChangeListener} from this node's
+     * listeners list.
+     *
+     * @param propertyName
      * @param listener the listener
      */
-    void removePropertyChangeListener(String propertyName,
-	    PropertyChangeListener listener);
+    void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
 }
