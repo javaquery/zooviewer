@@ -673,7 +673,7 @@ public class JZVNode extends javax.swing.JFrame {
         }
 
         model.updateData(nodes[0].getPath(), updatedContent.getBytes());
-        addLog("<font color=\"blue\">Node data update request sent from zooviwer [" + nodes[0].getName() + ", " + new String(nodes[0].getData()) + "]</font>");
+        addLog("<font color=\"blue\">Node data update request sent from zooviewer [" + nodes[0].getName() + ", " + new String(nodes[0].getData()) + "]</font>");
     }//GEN-LAST:event_buttonUpdateDataActionPerformed
 
     private void editorPaneDataKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editorPaneDataKeyTyped
@@ -706,7 +706,7 @@ public class JZVNode extends javax.swing.JFrame {
         String childContent = editorPaneChildData.getText();
         try {
             model.addNode(nodes[0].getPath() + "/" + childName, childContent.getBytes());
-            addLog("<font color=\"blue\">Node creation request sent from zooviwer [" + childName + ", " + childContent + "]</font>");
+            addLog("<font color=\"blue\">Node creation request sent from zooviewer [" + childName + ", " + childContent + "]</font>");
         } catch (IllegalStateException e) {
             addLog(e.getMessage());
         }
@@ -755,14 +755,14 @@ public class JZVNode extends javax.swing.JFrame {
             int selection = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete multiple node?", "Delete", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
             /* OK */
             if (selection == 0) {
-                addLog("<font color=\"gray\">Multiple node delete request sent from zooviwer</font>");
+                addLog("<font color=\"gray\">Multiple node delete request sent from zooviewer</font>");
                 model.deleteNodes(nodes);
             }
         } else {
             int selection = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete node '" + nodes[0].getName() + "'?", "Delete", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
             /* OK */
             if (selection == 0) {
-                addLog("<font color=\"gray\">'" + nodes[0].getName() + "' node delete request sent from zooviwer [" + nodes[0].getName() + ", " + new String(nodes[0].getData()) + "]</font>");
+                addLog("<font color=\"gray\">'" + nodes[0].getName() + "' node delete request sent from zooviewer [" + nodes[0].getName() + ", " + new String(nodes[0].getData()) + "]</font>");
                 model.deleteNode(nodes[0]);
             }
         }
